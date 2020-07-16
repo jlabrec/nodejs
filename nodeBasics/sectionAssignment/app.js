@@ -6,4 +6,3 @@ const routes = require('./routes.js');
 const createServer = http.createServer(routes);
 
 createServer.listen(3000);
-console.log(createServer.listening);
