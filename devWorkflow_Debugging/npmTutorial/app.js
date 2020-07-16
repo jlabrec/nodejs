@@ -24,6 +24,7 @@ const routes = require('./routes');
 //3. The below would be allowed if routes.js just exported the single method, but since we are exporting an object, #4 is required
 //const server = http.createServer(routes)
 const server = http.createServer(routes.handler);
+
 //console.log(routes.someText);
 server.listen(3000);
 
