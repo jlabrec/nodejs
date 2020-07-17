@@ -12,7 +12,8 @@ const app = express();
 //Parse the body of the request and call next routing function, will parse form type data. 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(adminRouter);
+//adding `/admin` allows filtering all adminRouter routes to have /admin/route
+app.use('/admin',adminRouter);
 app.use(shopRouter);
 
 
