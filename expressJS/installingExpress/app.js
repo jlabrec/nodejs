@@ -2,6 +2,7 @@
 //const http = require('http'); not necessary since express is handling this so far. 
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const adminRouter = require('./routes/admin');
 const shopRouter = require('./routes/shop');
@@ -13,7 +14,8 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 
 //adding `/admin` allows filtering all adminRouter routes to have /admin/route
-app.use('/admin',adminRouter);
+//app.use('/admin',adminRouter);
+app.use(adminRouter);
 app.use(shopRouter);
 
 
@@ -26,7 +28,7 @@ app.use(shopRouter);
 
 //add 404 page for if no routes matched
 app.use((req,res,next)=>{
-    res.status(404).send('<h1>404 error: Page not found<h1>');
+    res.status(404).sendFile(path.join(__dirname,'views','notFound.html'));
 
 });
 

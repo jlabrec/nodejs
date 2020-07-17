@@ -1,5 +1,5 @@
 const express = require('express');
-
+const path = require('path');
 
 const router = express.Router();
 
@@ -12,9 +12,10 @@ router.use('/',(req,res,next)=>{
 router.get('/',(req,res,next)=>{
     // console.log('This is the next');
      //Send response
-     res.setHeader('Content-Type','application/json');
-     res.send({"message":"Hello from express json"});
+     //res.setHeader('Content-Type','application/json');
+     //res.send({"message":"Hello from express json"});
      //res.send('<h1>Hello from Express</h1>');
+     res.sendFile(path.join(__dirname,'..','views','shop.html'));
  
  });
  
