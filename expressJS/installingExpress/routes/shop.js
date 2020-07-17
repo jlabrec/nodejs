@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 
+const rootDir = require('../util/path');
+
 const router = express.Router();
 
 //.use will match '/'+anything, .get/post will match exactly. 
@@ -15,7 +17,8 @@ router.get('/',(req,res,next)=>{
      //res.setHeader('Content-Type','application/json');
      //res.send({"message":"Hello from express json"});
      //res.send('<h1>Hello from Express</h1>');
-     res.sendFile(path.join(__dirname,'..','views','shop.html'));
+    //  res.sendFile(path.join(__dirname,'..','views','shop.html'));
+    res.sendFile(path.join(rootDir,'views','shop.html'));
  
  });
  
