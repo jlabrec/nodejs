@@ -19,7 +19,7 @@ router.get('/add-product',(req,res,next)=>{
      * Pug templating:
      */
 
-     res.render('add-product',{docTitle:"Add Product"});
+     res.render('add-product',{docTitle:"Add Product", path: "/admin/add-product"});
 })
 
 
