@@ -8,21 +8,18 @@ const adminRouter = require('./routes/admin');
 const shopRouter = require('./routes/shop');
 
 
+
 const app = express();
 
 //Parse the body of the request and call next routing function, will parse form type data. 
 app.use(bodyParser.urlencoded({extended: false}));
 
+//Middleware for linking static content files such as the style sheets for the html views
+app.use(express.static(path.join(__dirname,'public')));
+
 //adding `/admin` allows filtering all adminRouter routes to have /admin/route
 app.use('/admin',adminRouter);
 app.use(shopRouter);
-
-
-
-
-
-
-
 
 
 //add 404 page for if no routes matched
