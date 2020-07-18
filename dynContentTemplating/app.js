@@ -4,12 +4,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const adminRouter = require('./routes/admin');
+const adminData = require('./routes/admin');
 const shopRouter = require('./routes/shop');
 
 
 
 const app = express();
+
+//telling express where are views folder is: 
+app.set('views','views');
+
+/**
+ * Pug set up section: 
+ */
+app.set('view engine','pug');
+
 
 //Parse the body of the request and call next routing function, will parse form type data. 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -18,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
 
 //adding `/admin` allows filtering all adminRouter routes to have /admin/route
-app.use('/admin',adminRouter);
+app.use('/admin',adminData.routes);
 app.use(shopRouter);
 
 

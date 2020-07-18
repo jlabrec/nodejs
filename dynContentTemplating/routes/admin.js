@@ -5,10 +5,12 @@ const rootDir = require('../util/path');
 
 const router = express.Router();
 
+const products = [];
 
 
 
-module.exports = router;
+
+
 
 router.get('/add-product',(req,res,next)=>{
     //res.sendFile(path.join(__dirname,'..','views','add-product.html'));
@@ -20,7 +22,11 @@ router.get('/add-product',(req,res,next)=>{
 //Will only match post requests
 router.post('/add-product',(req,res,next)=>{
 
-    console.log(req.body); //convenience function express provides
-    console.log(req.body.title);
+    //console.log(req.body); //convenience function express provides
+    //console.log(req.body.title);
+    products.push({title: req.body.title});
     res.redirect('/');//convenience function express provides
 });
+
+exports.routes = router; 
+exports.products = products;
