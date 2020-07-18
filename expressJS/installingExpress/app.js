@@ -14,8 +14,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 
 //adding `/admin` allows filtering all adminRouter routes to have /admin/route
-//app.use('/admin',adminRouter);
-app.use(adminRouter);
+app.use('/admin',adminRouter);
 app.use(shopRouter);
 
 
