@@ -15,7 +15,7 @@ router.use('/',(req,res,next)=>{
 
 router.get('/',(req,res,next)=>{
 
-    console.log(adminData.products)
+    // console.log(adminData.products)
     // console.log('This is the next');
      //Send response
      //res.setHeader('Content-Type','application/json');

@@ -33,7 +33,7 @@ app.use(shopRouter);
 
 //add 404 page for if no routes matched
 app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(__dirname,'views','notFound.html'));
+    res.status(404).render('404',{docTitle: "Error 404"})
 
 });
 
