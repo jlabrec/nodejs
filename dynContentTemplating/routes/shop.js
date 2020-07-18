@@ -29,8 +29,14 @@ router.get('/',(req,res,next)=>{
      * we dont need to supply the path to shop.pug, because it was set in app.js
      */
     const products = adminData.products;
-
-    res.render('shop',{prods: products, docTitle: "Shop", path: "/"});
+    
+    res.render('shop',{
+        prods: products,
+        docTitle: "Shop",
+        path: "/",hasProducts: products.length>0,
+        activeShop: true,
+        productCSS: true
+    });
  
  });
  
