@@ -1,1 +1,0 @@
-DROP+TABLES+*%3B
