@@ -4,6 +4,7 @@ const path = require('path');
 
 
 const homeRouter = require('./routes/home');
+const userRouter = require('./routes/users');
 
 const app = express();
 
@@ -21,7 +22,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static(path.join(__dirname,'public')));
 
+
+app.use('/users',userRouter.router);
 app.use(homeRouter);
+
+app.use('/',(req,res,next)=>{
+    res.status(404).render('404.ejs',{pageTitle: 'Error 404'});
+});
 
 
 app.listen(3000);
