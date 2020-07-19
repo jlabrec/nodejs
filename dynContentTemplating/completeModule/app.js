@@ -14,14 +14,38 @@ const shopRouter = require('./routes/shop');
 
 const app = express();
 
-//telling express where are views folder is: (option,location)
-app.set('views','views'); //('views','views') is the default setting
+//telling express where are views folder is: 
+app.set('views','views');
+
+/**
+ * Pug set up section: 
+ */
+//app.set('view engine','pug');
+
+
+/**
+ * handlebars set up section
+ */
+
+//  const expressHbs = require('express-handlebars');
+//  //the name we use for the engine(handlebars vs hbs) would change our file extension on our views files
+//  app.engine('hbs',expressHbs({layoutsDir: 'views/layouts', defaultLayout: 'main-layout.hbs'}));//default is 'views/layouts'
+//  app.set('view engine','hbs');
 
 /**
  * EJS set up 
  */
 
  app.set('view engine', 'ejs');
+
+
+
+
+
+
+
+
+
 
 
 //Parse the body of the request and call next routing function, will parse form type data. 

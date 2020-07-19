@@ -15,6 +15,19 @@ router.use('/',(req,res,next)=>{
 
 router.get('/',(req,res,next)=>{
 
+    // console.log(adminData.products)
+    // console.log('This is the next');
+     //Send response
+     //res.setHeader('Content-Type','application/json');
+     //res.send({"message":"Hello from express json"});
+     //res.send('<h1>Hello from Express</h1>');
+    //  res.sendFile(path.join(__dirname,'..','views','shop.html'));
+    //res.sendFile(path.join(rootDir,'views','shop.html'));
+
+    /**
+     * Pug response: 
+     * we dont need to supply the path to shop.pug, because it was set in app.js
+     */
     const products = adminData.products;
     products.sort((a,that)=>(a.title.toUpperCase()< that.title.toUpperCase())? -1:1);
     
