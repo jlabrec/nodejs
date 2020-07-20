@@ -12,6 +12,7 @@ const getProductsFromFile=(callBack) => {
         callBack(JSON.parse(data).sort((a,that)=> (a.title.toLowerCase() < that.title.toLowerCase()) ? -1 : 1));
         }
     });
+
 };
 
 
