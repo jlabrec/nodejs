@@ -1,4 +1,4 @@
-const products = [];
+const Product = require('../models/product');
 
 exports.getAddProduct = (req,res,next)=>{
     
@@ -14,16 +14,17 @@ exports.getAddProduct = (req,res,next)=>{
 
 exports.postAddProduct = (req,res,next)=>{
 
+    const newProduct = new Product(req.body.title);
+    newProduct.save();
     
-    products.push({title: req.body.title});
     
     res.redirect('/');//convenience function express provides
 };
 
 exports.getProducts = (req,res,next)=>{
 
+    const products = Product.fetchAll();
     
-    products.sort((a,that)=>(a.title.toUpperCase()< that.title.toUpperCase())? -1:1);
     
     res.render('shop',{
         prods: products,
