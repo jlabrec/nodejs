@@ -20,6 +20,7 @@ router.get('/products/:productId',shopController.getProduct);
 //get cart page
 router.get('/cart',shopController.getCart);
 
+router.post('/cart',shopController.postCart)
 
 //get checkout page
 router.get('/checkout',shopController.getCheckout);
