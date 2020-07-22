@@ -3,6 +3,7 @@ const path = require('path');
 
 const rootDir = require('../util/path');
 const p = path.join(rootDir,'data','products.json');
+const Cart = require('./cart');
 
 const getProductsFromFile=(callBack) => {
     fs.readFile(p,(err,data)=>{
@@ -27,9 +28,11 @@ module.exports = class Product{
 
     static deleteById(id) {
         getProductsFromFile(products => {
+            const product = products.find(prod=> prod.id === id);
             const updatedProds = products.filter(prod => prod.id !== id);
             fs.writeFile(p,JSON.stringify(updatedProds,null,4),err=>{
                 if(err) console.log(err);
+                else Cart.deleteProduct(id,product.price);
             });
         });
     }
