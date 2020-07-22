@@ -25,6 +25,15 @@ module.exports = class Product{
         this.price = price;
     }
 
+    static deleteById(id) {
+        getProductsFromFile(products => {
+            const updatedProds = products.filter(prod => prod.id !== id);
+            fs.writeFile(p,JSON.stringify(updatedProds,null,4),err=>{
+                if(err) console.log(err);
+            });
+        });
+    }
+
     save() {
 
         getProductsFromFile(products =>{
